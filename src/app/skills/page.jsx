@@ -1,9 +1,11 @@
-const SkillsSection = () =>{
-    return(
-        <div className="bg-yellow-500">
-            SkillsSection page
-        </div>
-    )
-}
+import SkillSection from "../../components/skillsSection";
 
-export default SkillsSection;
+export default function Home() {
+  return (
+    <main>
+      <h1 className="text-3xl font-bold text-center mt-10">Welcome to My Portfolio</h1>
+      
+      <SkillSection />
+    </main>
+  );
+}

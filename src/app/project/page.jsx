@@ -1,9 +1,22 @@
-const Projects = () =>{
-    return(
-        <div className="bg-yellow-500">
-            Projects page
-        </div>
-    )
-}
+"use client";
+import React from 'react';
+import Card from '../../components/projectCard';
+import projects from '../data/projects.json';
 
-export default Projects;
+const App = () => {
+  return (
+    <div style={{
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'center',
+      gap: '2rem',
+      padding: '2rem'
+    }}>
+      {projects.map((project, index) => (
+        <Card key={index} project={project} />
+      ))}
+    </div>
+  );
+};
+
+export default App;

@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Real-Time Crypto Tracker",
+    "description": "A modern cryptocurrency dashboard showing live-updating asset prices with charts and Redux state.",
+    "live": "https://cryptotracke.vercel.app/",
+    "github": "https://github.com/riya1807pro/crypto-tracker",
+    "skills": ["React", "Javascript", "TypeScript", "Tailwind CSS", "Redux", "Vite"]
+  },
+  {
+    "title": "React Redux CRUD (Posts App)",
+    "description": "A CRUD app to create, edit, delete posts using Redux Toolkit and localStorage.",
+    "live": "https://redux-posts-app-lake.vercel.app/",
+    "github": "https://github.com/riya1807pro/redux-posts-app",
+    "skills": ["React", "Redux Toolkit", "Tailwind CSS", "Vite"]
+  },
+  {
+    "title": "Next.js Auth System",
+    "description": "Production-ready Next.js auth system with MongoDB, JWT, email verification, role-based access.",
+    "live": "https://nextjs-auth-taupe.vercel.app/",
+    "github": "https://github.com/riya1807pro/nextjs_auth",
+    "skills": ["Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"]
+  },
+  {
+    "title": "My Developer Portfolio",
+    "description": "My personal portfolio website built with Next.js, Tailwind CSS, Framer Motion.",
+    "live": "https://cryptotracke.vercel.app/",
+    "github": "https://github.com/riya1807pro/riya-kaushik-portfolio",
+    "skills": ["Next.js", "Tailwind CSS", "Framer Motion"]
+  }
+]

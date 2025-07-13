@@ -1,5 +1,7 @@
+"use client"
 import './globals.css'
-import {Navbar} from '../components/Navbar'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Navbar} from "../components/navbar"
 
 export default function RootLayout({ children }) {
   return (

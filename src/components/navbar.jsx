@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 export const Navbar = () => {
@@ -10,30 +9,30 @@ export const Navbar = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return ("loading....");
+  if (!mounted) return "loading....";
 
   return (
-    <nav className="flex justify-between items-center px-8 py-4 bg-white dark:bg-gray-900 shadow transition-colors duration-500">
+    <nav className="-z-20 flex justify-between items-center px-8 py-4 border-y-indigo-500 border-2 backdrop-blur-2xl bg-cyan-500 shadow transition-colors duration-200">
       {/* Logo */}
       <div className="text-2xl font-bold text-gray-800 dark:text-gray-100 hover:text-pink-500 cursor-pointer transition-colors duration-300">
         Riya Kaushik
       </div>
 
       {/* Links */}
-      <div className="flex gap-8 text-lg text-gray-600 dark:text-gray-300">
-        <Link href="/" className="hover:text-pink-500 transition-colors duration-300 cursor-pointer">
+      <div className="flex gap-8 text-lg text-amber-800 ">
+        <Link href="/" className="text-2xl font-bold text-gray-800 dark:text-gray-100 hover:text-pink-500 cursor-pointer transition-colors duration-300">
           Home
         </Link>
-        <Link href="/about" className="hover:text-pink-500 transition-colors duration-300 cursor-pointer">
+        <Link href="/about" className="text-amber-800 hover:text-green-500 text-2xl transition-colors duration-300 cursor-pointer no-underline">
           About
         </Link>
-        <Link href="/skills" className="hover:text-pink-500 transition-colors duration-300 cursor-pointer">
+        <Link href="/skills" className="text-2xl font-bold text-gray-800 dark:text-gray-100 hover:text-pink-500 cursor-pointer transition-colors duration-300">
           Skills
         </Link>
-        <Link href="/project" className="hover:text-pink-500 transition-colors duration-300 cursor-pointer">
+        <Link href="/project" className="text-2xl font-bold text-gray-800 dark:text-gray-100 hover:text-pink-500 cursor-pointer transition-colors duration-300">
           Projects
         </Link>
-        <Link href="/contact" className="hover:text-pink-500 transition-colors duration-300 cursor-pointer">
+        <Link href="/contact" className="text-2xl font-bold text-gray-800 dark:text-gray-100 hover:text-pink-500 cursor-pointer transition-colors duration-300">
           Contact
         </Link>
       </div>
