@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import toast, { Toaster } from "react-hot-toast";
 import { FaUser, FaEnvelope, FaPhone, FaRegCommentDots } from "react-icons/fa";
 import { MdOutlineSubject } from "react-icons/md";
+import { useState } from "react";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -15,6 +16,8 @@ const schema = z.object({
 });
 
 export const ContactForm = () => {
+  const [status,setStatus] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -25,10 +28,25 @@ export const ContactForm = () => {
   });
 
   const onSubmit = async (data) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    toast.success("Message sent successfully 🚀");
-    reset();
-  };
+  setStatus("sending...");
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      setStatus("Message sent successfully");
+      reset();
+    } else {
+      setStatus("Error sending message");
+    }
+  } catch (err) {
+    setStatus("Something went wrong...");
+  }
+};
+
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-indigo-300 via-blue-100 to-purple-200 p-6">
@@ -101,9 +119,10 @@ export const ContactForm = () => {
               className="w-full p-3 border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
             >
               <option value="">Select reason</option>
-              <option value="Project Inquiry">Project Inquiry</option>
-              <option value="Collaboration">Collaboration</option>
-              <option value="Other">Other</option>
+  <option value="Project Inquiry">Project Inquiry</option>
+  <option value="Collaboration">Collaboration</option>
+  <option value="General Question">General Question</option>
+  <option value="Other">Other</option>
             </select>
             {errors.reason && (
               <p className="text-red-600 text-sm mt-1">{errors.reason.message}</p>
@@ -134,7 +153,7 @@ export const ContactForm = () => {
             className={`px-8 py-3 rounded-xl shadow bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:scale-105 transition-transform duration-300
               ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
           >
-            {isSubmitting ? "Sending..." : "Send Message 🚀"}
+            {status}
           </button>
         </div>
       </form>
