@@ -1,24 +1,39 @@
 "use client"
-import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { motion } from "framer-motion"
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export const Footer = () => {
   return (
-    <footer className="bg-indigo-900 text-white py-6 mt-12">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-        <div className="mb-4 md:mb-0 text-center md:text-left">
-          <p className="font-semibold text-lg">Riya Kaushik</p>
-          <p className="text-sm">&copy; {new Date().getFullYear()} All rights reserved.</p>
+    <motion.footer
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-indigo-900 text-wheat py-2 bottom-0 fixed w-screen" 
+    >
+      <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center px-4 text-white text-sm">
+        <div className="mb-2 sm:mb-0">
+          &copy; {new Date().getFullYear()} Riya Kaushik. All rights reserved.
         </div>
-
-        <div className="flex space-x-6 text-xl">
-          <a href="https://github.com/riya1807pro" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition-colors duration-300">
+        <div className="flex space-x-6 text-lg">
+          <a
+            href="https://github.com/riya1807pro"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-pink-300 text-white transition-colors duration-300"
+          >
             <FaGithub />
           </a>
-          <a href="https://www.linkedin.com/in/riyakaushik-webdev" target="_blank" rel="noopener noreferrer" className="hover:text-pink-300 transition-colors duration-300">
+          <a
+            href="https://www.linkedin.com/in/riyakaushik-webdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-pink-300 text-white transition-colors duration-300"
+          >
             <FaLinkedin />
           </a>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
