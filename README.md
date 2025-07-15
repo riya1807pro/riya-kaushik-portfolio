@@ -22,7 +22,7 @@
 
 ## 📸 Screenshots
 
-![alt text](image.png)
+(![image sample](public/portfolio.PNG))
  
 ---
 
