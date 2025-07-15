@@ -16,7 +16,7 @@
 
 ## ✨ Live Demo
 
-🚀 *[View Live Portfolio](https://github.com/riya1807pro/riya-kaushik-portfolio)*
+🚀 *[View Live ](https://riya-kaushik-portfolio.vercel.app/)*
 
 ---
 
