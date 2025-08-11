@@ -1,26 +1,26 @@
 "use client"
+import { useEffect, useState } from "react";
+import Loader from "../components/loader";
+import { Navbar } from "../components/navbar";
+import { Footer } from "../components/footer";
 import './globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar} from "../components/navbar"
-import {Footer} from "../components/footer"
-import Loader from "../components/loader";
-import { useState, useEffect } from "react";
 
 export default function RootLayout({ children }) {
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // simulate loading
-    setTimeout(() => setLoading(false), 2000);
+    setTimeout(() => setLoading(false), 1000);
   }, []);
+
   return (
     <html lang="en">
-      <body className='bg-gradient-to-tr from-blue-300 via-purple-400 to-pink-300'>
+      <body className="bg-gradient-to-tr from-blue-50 via-pink-50 to-purple-100 min-h-screen text-gray-800 font-inter transition-all">
         {loading && <Loader />}
         <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
-  )
+  );
 }

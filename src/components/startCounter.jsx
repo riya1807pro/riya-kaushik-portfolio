@@ -29,15 +29,12 @@ export default function CountUp({
 
   const getDecimalPlaces = (num) => {
     const str = num.toString();
-
     if (str.includes(".")) {
       const decimals = str.split(".")[1];
-
       if (parseInt(decimals) !== 0) {
         return decimals.length;
       }
     }
-
     return 0;
   };
 
@@ -52,15 +49,12 @@ export default function CountUp({
   useEffect(() => {
     if (isInView && startWhen) {
       if (typeof onStart === "function") onStart();
-
       const timeoutId = setTimeout(() => {
         motionValue.set(direction === "down" ? from : to);
       }, delay * 1000);
-
       const durationTimeoutId = setTimeout(() => {
         if (typeof onEnd === "function") onEnd();
       }, delay * 1000 + duration * 1000);
-
       return () => {
         clearTimeout(timeoutId);
         clearTimeout(durationTimeoutId);
@@ -83,25 +77,26 @@ export default function CountUp({
     const unsubscribe = springValue.on("change", (latest) => {
       if (ref.current) {
         const hasDecimals = maxDecimals > 0;
-
         const options = {
           useGrouping: !!separator,
           minimumFractionDigits: hasDecimals ? maxDecimals : 0,
           maximumFractionDigits: hasDecimals ? maxDecimals : 0,
         };
-
         const formattedNumber = Intl.NumberFormat("en-US", options).format(
           latest
         );
-
         ref.current.textContent = separator
           ? formattedNumber.replace(/,/g, separator)
           : formattedNumber;
       }
     });
-
     return () => unsubscribe();
   }, [springValue, separator, maxDecimals]);
 
-  return <span className={className} ref={ref} />;
+  return (
+    <span
+      className={`font-bold text-2xl md:text-4xl text-indigo-600 dark:text-pink-400 transition-all duration-300 ${className}`}
+      ref={ref}
+    />
+  );
 }
