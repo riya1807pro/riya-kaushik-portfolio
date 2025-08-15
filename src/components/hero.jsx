@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-
+import ResumeButton from "./ResumeButton";
 const Hero = () => {
   const [projects, setProjects] = useState(0);
   const [skills, setSkills] = useState(0);
@@ -18,7 +18,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 via-pink-50 to-purple-100 text-gray-800 rounded-3xl shadow-2xl transition-all duration-500 pt-20 md:pt-0  md:scale-100">
+    <div className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-blue-50 via-pink-50 to-purple-100 text-gray-800 rounded-3xl shadow-2xl transition-all duration-500 pt-20 md:pt-0">
       <div className="flex-1 flex flex-col items-center justify-center px-8 py-16">
         <p className="text-4xl md:text-7xl font-bold mb-6 tracking-wide text-center">
           <span className="bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-transparent bg-clip-text drop-shadow-lg">
@@ -47,6 +47,7 @@ const Hero = () => {
             <p className="text-lg mt-2 text-gray-700">Skills</p>
           </div>
         </div>
+        <ResumeButton resumeUrl="/resume.pdf" resumeName="Riya_Kaushik_Resume.pdf" className="mt-8" />
       </div>
       <div className="flex-1 flex items-center justify-center px-8 py-16">
         <img
