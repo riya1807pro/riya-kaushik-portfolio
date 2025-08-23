@@ -18,9 +18,9 @@ const points = [
 
 const About = () => {
   return (
-    <div className="container px-4 py-14 w-screen mt-20">
+    <div className="container px-4 py-2 w-screen ">
       <motion.h1
-        className="text-4xl font-extrabold text-rose-200 text-center mb-10"
+        className="text-4xl font-extrabold text-white text-center mb-10"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -67,7 +67,7 @@ const About = () => {
 
       {/* Buttons */}
       <motion.div
-        className="flex flex-col sm:flex-row justify-center items-center mt-12 gap-8"
+        className="flex flex-col sm:flex-row justify-center items-center  gap-8"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.6 }}
@@ -75,7 +75,7 @@ const About = () => {
         <Link href="/contact">
           <motion.button
             whileHover={{ scale: 1.1 }}
-            className="bg-gradient-to-r from-pink-700 via-purple-800 to-blue-950 text-white px-8 py-2 rounded-lg shadow-lg hover:from-pink-600 hover:to-blue-900 transition duration-300"
+            className="bg-gradient-to-r from-pink-700 via-purple-800 to-blue-950 text-white px-4 py-2 rounded-lg shadow-lg hover:from-pink-600 hover:to-blue-900 transition duration-300"
           >
             Contact Me
           </motion.button>

@@ -1,11 +1,11 @@
 [
   {
-    "title": "Real-Time Crypto Tracker",
-    "description": "A modern cryptocurrency dashboard showing live-updating asset prices with charts and Redux state.",
-    "live": "https://cryptotracke.vercel.app/",
-    "github": "https://github.com/riya1807pro/crypto-tracker",
-    "image": "/cryptoTracker.PNG",
-    "skills": ["React", "Javascript", "TypeScript", "Tailwind CSS", "Redux", "Vite"]
+    "title": "Dashboard - Real-time Data Sync",
+    "description": "DashSync is a Next.js + TypeScript web application that aggregates trending movies and *top news articles, personalised to each user’s *preferences (genre + category) and authentication.",
+    "live": "https://datasync-dashboard.vercel.app/",
+    "github": "https://github.com/riya1807pro/datasync-dashboard",
+    "image": "/datasync.png",
+    "skills": ["Next.js 15", "TypeScript", "TailwindCSS", "Redux Toolkit + RTK Query", "Clerk", "NewsAPI / TMDB API", "vercel"]
   },
   {
     "title": "React Redux CRUD (Posts App)",

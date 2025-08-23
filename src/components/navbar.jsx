@@ -14,7 +14,7 @@ export const Navbar = () => {
   if (!mounted) return "loading...";
 
   return (
-    <nav className="fixed w-full top-0 z-50 px-8 py-4 
+    <nav  className="fixed w-full top-0 z-50 px-8 py-4 
       bg-gradient-to-r from-[#0f0c29]/60 via-[#302b63]/60 to-[#24243e]/60 
       backdrop-blur-xl shadow-lg flex justify-between items-center">
 
@@ -47,12 +47,12 @@ export const Navbar = () => {
 // Extracted links for reuse
 const NavLinks = () => (
   <>
-    <LinkItem href="/" color="pink-400">Home</LinkItem>
-    <LinkItem href="/about" color="purple-400">About</LinkItem>
-    <LinkItem href="/skills" color="indigo-400">Skills</LinkItem>
-    <LinkItem href="/project" color="green-400">Projects</LinkItem>
-    <LinkItem href="/contact" color="yellow-400">Contact</LinkItem>
-    <LinkItem href="/resume" color="cyan-400">Resume</LinkItem>
+    <LinkItem href="#home" color="pink-400">Home</LinkItem>
+    <LinkItem href="#about" color="purple-400">About</LinkItem>
+    <LinkItem href="#skills" color="indigo-400">Skills</LinkItem>
+    <LinkItem href="#projects" color="green-400">Projects</LinkItem>
+    <LinkItem href="#contact" color="yellow-400">Contact</LinkItem>
+    <LinkItem href="#resume" color="cyan-400">Resume</LinkItem>
   </>
 );
 

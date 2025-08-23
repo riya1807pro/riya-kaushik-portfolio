@@ -50,12 +50,12 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]">
+    <div className="min-h-screen flex items-center justify-center py-12 ">
       <Toaster position="top-center" />
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-3xl bg-[#1e1e3f]/80 backdrop-blur-xl border border-purple-500/30 shadow-2xl rounded-3xl p-10 space-y-8"
+        className="w-full min-w-4xl m-5 bg-[#1e1e3f]/80 backdrop-blur-xl border border-purple-500/30 shadow-2xl rounded-3xl p-10 space-y-8"
       >
         <h2 className="text-4xl font-extrabold text-center bg-clip-text text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
           Contact Me

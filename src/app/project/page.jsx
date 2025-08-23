@@ -5,7 +5,7 @@ import Card from '../../components/projectCard';
 import projects from '../data/projects.json';
 import { motion } from "framer-motion";
 
-const App = () => {
+const Project = () => {
   return (
     <Container>
       <motion.img
@@ -17,9 +17,14 @@ const App = () => {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
       />
-      <h2 className="title">
-        🚀 Projects
-      </h2>
+     <motion.h1
+        className="text-4xl font-extrabold text-white text-center mb-10"
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+       🚀 My Projects 
+      </motion.h1>
       <Grid>
         {projects.map((project, index) => (
           <Card key={index} project={project} />
@@ -49,11 +54,11 @@ const App = () => {
 const Container = styled.div`
   min-height: 100vh;
   padding: 3rem 2rem;
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  margin-top: 2rem;
 
   .project-banner {
     height: 160px;
@@ -73,7 +78,6 @@ const Container = styled.div`
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    background: linear-gradient(90deg, #ec4899, #8b5cf6, #6366f1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -83,7 +87,7 @@ const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
+  gap: 4rem;
 
   .see-more {
     text-decoration: none;
@@ -122,4 +126,4 @@ const Grid = styled.div`
   }
 `;
 
-export default App;
+export default Project;

@@ -58,7 +58,7 @@ const SkillItem = ({ icon, name, level }) => (
 
 const Skills = () => {
   return (
-   <section className="py-20 bg-gradient-to-br from-gray-50 via-purple-100 to-indigo-200 dark:from-gray-900 dark:via-purple-900 dark:to-indigo-900">
+   <section className="py-2 m-6">
   <div className="max-w-6xl mx-auto px-6 text-center">
     <img
       src="/skill.svg"
@@ -79,8 +79,8 @@ const Skills = () => {
         <SkillItem key={skill.name} {...skill} />
       ))}
     </motion.div>
-    <p className="mt-24 text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-      <span className="font-semibold">
+    <p className="mt-11 text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+      <span className="font-semibold mt-11">
         React.js · Next.js · Tailwind CSS · Redux Toolkit · Node.js · Express.js · GitHub · C++ DSA
       </span>
     </p>
