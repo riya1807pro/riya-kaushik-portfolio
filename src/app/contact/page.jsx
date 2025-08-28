@@ -6,13 +6,14 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { FaUser, FaEnvelope, FaPhone, FaRegCommentDots } from "react-icons/fa";
 import { MdOutlineSubject } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Invalid email"),
   phone: z.string().min(10, "Phone must be at least 10 digits"),
   reason: z.string().min(1, "Select a reason"),
-  message: z.string().min(1, "Message is required")
+  message: z.string().min(1, "Message is required"),
 });
 
 const Contact = () => {
@@ -21,9 +22,9 @@ const Contact = () => {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
   } = useForm({
-    resolver: zodResolver(schema)
+    resolver: zodResolver(schema),
   });
 
   const onSubmit = async (data) => {
@@ -32,7 +33,7 @@ const Contact = () => {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
 
       if (res.ok) {
@@ -50,18 +51,26 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center py-12 ">
+    <section className="relative min-h-screen flex items-center justify-center py-16 px-6 bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white overflow-hidden">
+      {/* Glow Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.15),transparent_70%)]" />
+
       <Toaster position="top-center" />
 
-      <form
+      <motion.form
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full min-w-4xl m-5 bg-[#1e1e3f]/80 backdrop-blur-xl border border-purple-500/30 shadow-2xl rounded-3xl p-10 space-y-8"
+        className="relative w-full max-w-3xl bg-gray-900/60 backdrop-blur-xl border border-purple-500/20 hover:border-purple-400/40 transition rounded-3xl shadow-lg p-10 space-y-8 z-10"
       >
-        <h2 className="text-4xl font-extrabold text-center bg-clip-text text-white bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500">
+        <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 text-transparent bg-clip-text">
           Contact Me
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Name */}
           <div>
             <label className="block mb-1 font-semibold text-purple-300">
               <FaUser className="inline mr-1" /> Name
@@ -70,13 +79,14 @@ const Contact = () => {
               type="text"
               placeholder="Your name"
               {...register("name")}
-              className="w-full p-3 rounded-lg bg-[#2c2c54]/70 text-white border border-purple-500/30 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 rounded-lg bg-gray-800/50 text-white border border-gray-600/30 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             />
             {errors.name && (
               <p className="text-pink-400 text-sm mt-1">{errors.name.message}</p>
             )}
           </div>
 
+          {/* Email */}
           <div>
             <label className="block mb-1 font-semibold text-purple-300">
               <FaEnvelope className="inline mr-1" /> Email
@@ -85,13 +95,14 @@ const Contact = () => {
               type="email"
               placeholder="you@example.com"
               {...register("email")}
-              className="w-full p-3 rounded-lg bg-[#2c2c54]/70 text-white border border-purple-500/30 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 rounded-lg bg-gray-800/50 text-white border border-gray-600/30 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             />
             {errors.email && (
               <p className="text-pink-400 text-sm mt-1">{errors.email.message}</p>
             )}
           </div>
 
+          {/* Phone */}
           <div>
             <label className="block mb-1 font-semibold text-purple-300">
               <FaPhone className="inline mr-1" /> Phone
@@ -100,20 +111,21 @@ const Contact = () => {
               type="tel"
               placeholder="Your phone"
               {...register("phone")}
-              className="w-full p-3 rounded-lg bg-[#2c2c54]/70 text-white border border-purple-500/30 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 rounded-lg bg-gray-800/50 text-white border border-gray-600/30 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             />
             {errors.phone && (
               <p className="text-pink-400 text-sm mt-1">{errors.phone.message}</p>
             )}
           </div>
 
+          {/* Reason */}
           <div>
             <label className="block mb-1 font-semibold text-purple-300">
               <MdOutlineSubject className="inline mr-1" /> Reason
             </label>
             <select
               {...register("reason")}
-              className="w-full p-3 rounded-lg bg-[#2c2c54]/70 text-white border border-purple-500/30 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 rounded-lg bg-gray-800/50 text-white border border-gray-600/30 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             >
               <option value="">Select reason</option>
               <option value="Project Inquiry">Project Inquiry</option>
@@ -126,6 +138,7 @@ const Contact = () => {
             )}
           </div>
 
+          {/* Message */}
           <div className="md:col-span-2">
             <label className="block mb-1 font-semibold text-purple-300">
               <FaRegCommentDots className="inline mr-1" /> Message
@@ -134,7 +147,7 @@ const Contact = () => {
               rows="4"
               placeholder="Your message"
               {...register("message")}
-              className="w-full p-3 rounded-lg bg-[#2c2c54]/70 text-white border border-purple-500/30 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full p-3 rounded-lg bg-gray-800/50 text-white border border-gray-600/30 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             ></textarea>
             {errors.message && (
               <p className="text-pink-400 text-sm mt-1">{errors.message.message}</p>
@@ -142,19 +155,23 @@ const Contact = () => {
           </div>
         </div>
 
+        {/* Button */}
         <div className="text-center pt-4">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
             disabled={isSubmitting}
-            className={`px-10 py-2  rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold shadow-xl transform hover:scale-105 transition duration-300
+            className={`px-10 py-3 rounded-lg bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold shadow-lg relative overflow-hidden transition-all
               ${isSubmitting ? "opacity-50 cursor-not-allowed" : ""}`}
           >
-            {status || "Send Message"}
-          </button>
+            <span className="relative z-10">{status || "Send Message"}</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-purple-400/20 to-pink-400/20 opacity-0 hover:opacity-100 transition" />
+          </motion.button>
         </div>
-      </form>
-    </div>
+      </motion.form>
+    </section>
   );
 };
 
-export default Contact
+export default Contact;

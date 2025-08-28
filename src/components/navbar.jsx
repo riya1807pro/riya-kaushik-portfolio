@@ -14,17 +14,23 @@ export const Navbar = () => {
   if (!mounted) return "loading...";
 
   return (
-    <nav  className="fixed w-full top-0 z-50 px-8 py-4 
-      bg-gradient-to-r from-[#0f0c29]/60 via-[#302b63]/60 to-[#24243e]/60 
-      backdrop-blur-xl shadow-lg flex justify-between items-center">
-
+    <nav
+      className="fixed w-full top-0 z-50 px-8 py-4 
+      bg-gradient-to-r from-black/70 via-blue-900/70 to-gray-900/70
+      backdrop-blur-lg shadow-xl flex justify-between items-center border-b border-blue-500/30"
+    >
       {/* Left logo */}
-      <div className="text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 tracking-widest cursor-pointer">
+      <div className="text-3xl font-bold text-transparent bg-clip-text 
+        bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 
+        tracking-wider cursor-pointer drop-shadow-md">
         Riya
       </div>
 
       {/* Hamburger menu for small screens */}
-      <div className="lg:hidden text-white text-3xl cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className="lg:hidden text-white text-3xl cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? <FiX /> : <FiMenu />}
       </div>
 
@@ -35,8 +41,11 @@ export const Navbar = () => {
 
       {/* Toggle links for small screen */}
       {isOpen && (
-        <div className="absolute top-full left-0 w-full flex flex-wrap justify-center gap-6 py-4 
-          bg-gradient-to-r from-[#0f0c29]/80 via-[#302b63]/80 to-[#24243e]/80 backdrop-blur-lg">
+        <div
+          className="absolute top-full left-0 w-full flex flex-col items-center gap-6 py-6 
+          bg-gradient-to-b from-black/95 via-blue-950/95 to-gray-900/95 
+          backdrop-blur-xl shadow-lg border-t border-blue-500/20"
+        >
           <NavLinks />
         </div>
       )}
@@ -58,8 +67,12 @@ const NavLinks = () => (
 
 // Reusable link item
 const LinkItem = ({ href, color, children }) => (
-  <Link href={href} className={`hover:text-${color} hover:underline underline-offset-4 
-    transition duration-300 scale-100 hover:scale-105 text-white`}>
-    {children}
+  <Link
+    href={href}
+    className={`relative text-white transition duration-300 hover:scale-110`}
+  >
+    <span className={`hover:text-${color} drop-shadow-[0_0_6px_rgba(255,255,255,0.7)]`}>
+      {children}
+    </span>
   </Link>
 );

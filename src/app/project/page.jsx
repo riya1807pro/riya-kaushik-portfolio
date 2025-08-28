@@ -1,129 +1,87 @@
 "use client";
-import React from 'react';
-import styled from 'styled-components';
-import Card from '../../components/projectCard';
-import projects from '../data/projects.json';
+
+import React from "react";
+import ProjectCard from "../../components/projectCard";
 import { motion } from "framer-motion";
 
-const Project = () => {
+const projects = [
+  {
+    title: "Dashboard - Real-time Data Sync",
+    description:
+      "DashSync is a Next.js + TypeScript web application that aggregates trending movies and *top news articles, personalised to each user’s *preferences (genre + category) and authentication.",
+    live: "https://datasync-dashboard.vercel.app/",
+    github: "https://github.com/riya1807pro/datasync-dashboard",
+    image: "/datasync.png",
+    skills: [
+      "Next.js 15",
+      "TypeScript",
+      "TailwindCSS",
+      "Redux Toolkit + RTK Query",
+      "Clerk",
+      "NewsAPI / TMDB API",
+      "vercel",
+    ],
+  },
+  {
+    title: "React Redux CRUD (Posts App)",
+    description:
+      "A CRUD app to create, edit, delete posts using Redux Toolkit and localStorage.",
+    live: "https://redux-posts-app-lake.vercel.app/",
+    github: "https://github.com/riya1807pro/redux-posts-app",
+    image: "/crud_app.png",
+    skills: ["React", "Redux Toolkit", "Tailwind CSS", "Vite"],
+  },
+  {
+    title: "Next.js Auth System",
+    description:
+      "Production-ready Next.js auth system with MongoDB, JWT, email verification, role-based access.",
+    live: "https://nextjs-auth-taupe.vercel.app/",
+    github: "https://github.com/riya1807pro/nextjs_auth",
+    image: "/next_auth.PNG",
+    skills: ["Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"],
+  },
+  {
+    title: "My Developer Portfolio",
+    description:
+      "My personal portfolio website built with Next.js, Tailwind CSS, Framer Motion.",
+    live: "https://cryptotracke.vercel.app/",
+    github: "https://github.com/riya1807pro/riya-kaushik-portfolio",
+    image: "/portfolio.PNG",
+    skills: ["Next.js", "Tailwind CSS", "Framer Motion"],
+  },
+];
+
+export default function Projects() {
   return (
-    <Container>
-      <motion.img
-        src="/projects.svg"
-        alt="project image"
-        className="project-banner"
-        whileHover={{ scale: 1.08 }}
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      />
-     <motion.h1
-        className="text-4xl font-extrabold text-white text-center mb-10"
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-       🚀 My Projects 
-      </motion.h1>
-      <Grid>
-        {projects.map((project, index) => (
-          <Card key={index} project={project} />
-        ))}
+    <section className="relative py-16 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
+      {/* Glow effect background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(129,140,248,0.15),transparent_70%)]" />
 
-        {/* See more card */}
-        <motion.a 
-          href="https://github.com/riya1807pro" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="see-more"
-          whileHover={{ scale: 1.1, x: 5 }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+      <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-14"
         >
-          <div className="arrow-card m-16">
-            <span>See more</span>
-            <span className="arrow">→</span>
-          </div>
-        </motion.a>
-      </Grid>
-    </Container>
+          🚀 Projects
+        </motion.h2>
+
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              <ProjectCard {...project} />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
-};
-
-const Container = styled.div`
-  min-height: 100vh;
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-
-  .project-banner {
-    height: 160px;
-    width: auto;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-
-    @media(min-width: 768px) {
-      height: 200px;
-    }
-    @media(min-width: 1024px) {
-      height: 240px;
-    }
-  }
-
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-`;
-
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 4rem;
-
-  .see-more {
-    text-decoration: none;
-    color: white;
-  }
-
-  .arrow-card {
-    width: 260px;
-    height: 180px;
-    background: rgba(255,255,255,0.08);
-    border: 1px dashed rgba(255,255,255,0.4);
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    cursor: pointer;
-
-    .arrow {
-      font-size: 2.5rem;
-      animation: bounce 1.5s infinite;
-    }
-
-    &:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(8px); }
-  }
-`;
-
-export default Project;
+}
