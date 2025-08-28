@@ -13,6 +13,16 @@ export const Navbar = () => {
 
   if (!mounted) return "loading...";
 
+    const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "Riya-Kaushik-Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+
   return (
     <nav
       className="fixed w-full top-0 z-50 px-8 py-4 
@@ -23,7 +33,7 @@ export const Navbar = () => {
       <div className="text-3xl font-bold text-transparent bg-clip-text 
         bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 
         tracking-wider cursor-pointer drop-shadow-md">
-        Riya
+        Riya Kaushik
       </div>
 
       {/* Hamburger menu for small screens */}
@@ -47,7 +57,10 @@ export const Navbar = () => {
           backdrop-blur-xl shadow-lg border-t border-blue-500/20"
         >
           <NavLinks />
+<button onClick={()=>handleDownload()} className="absolute top-0 right-0">Resume</button>
+
         </div>
+        
       )}
     </nav>
   );
@@ -61,7 +74,6 @@ const NavLinks = () => (
     <LinkItem href="#skills" color="indigo-400">Skills</LinkItem>
     <LinkItem href="#projects" color="green-400">Projects</LinkItem>
     <LinkItem href="#contact" color="yellow-400">Contact</LinkItem>
-    <LinkItem href="#resume" color="cyan-400">Resume</LinkItem>
   </>
 );
 

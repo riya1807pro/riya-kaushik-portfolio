@@ -1,34 +1,26 @@
 [
   {
     "title": "Dashboard - Real-time Data Sync",
-    "description": "DashSync is a Next.js + TypeScript web application that aggregates trending movies and *top news articles, personalised to each user’s *preferences (genre + category) and authentication.",
+    "description": "A Next.js + TypeScript dashboard that delivers real-time movie trends and top news articles. Includes user authentication, personalized feeds by genre & category, and API integrations (TMDB + NewsAPI).",
     "live": "https://datasync-dashboard.vercel.app/",
     "github": "https://github.com/riya1807pro/datasync-dashboard",
     "image": "/datasync.png",
-    "skills": ["Next.js 15", "TypeScript", "TailwindCSS", "Redux Toolkit + RTK Query", "Clerk", "NewsAPI / TMDB API", "vercel"]
+    "skills": ["Next.js 15", "TypeScript", "TailwindCSS", "Redux Toolkit + RTK Query", "Clerk", "NewsAPI / TMDB API", "Vercel"]
   },
   {
     "title": "React Redux CRUD (Posts App)",
-    "description": "A CRUD app to create, edit, delete posts using Redux Toolkit and localStorage.",
+    "description": "A lightweight CRUD application to create, edit, and delete posts with Redux Toolkit state management and localStorage persistence.",
     "live": "https://redux-posts-app-lake.vercel.app/",
     "github": "https://github.com/riya1807pro/redux-posts-app",
     "image": "/crud_app.png",
     "skills": ["React", "Redux Toolkit", "Tailwind CSS", "Vite"]
   },
   {
-    "title": "Next.js Auth System",
-    "description": "Production-ready Next.js auth system with MongoDB, JWT, email verification, role-based access.",
-    "live": "https://nextjs-auth-taupe.vercel.app/",
-    "github": "https://github.com/riya1807pro/nextjs_auth",
-    "image": "/next_auth.PNG",
-    "skills": ["Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"]
-  },
-  {
     "title": "My Developer Portfolio",
-    "description": "My personal portfolio website built with Next.js, Tailwind CSS, Framer Motion.",
+    "description": "Personal portfolio website built with Next.js, Tailwind CSS, and Framer Motion. Highlights skills, projects, and interactive UI with smooth animations.",
     "live": "https://cryptotracke.vercel.app/",
     "github": "https://github.com/riya1807pro/riya-kaushik-portfolio",
-  "image": "/portfolio.PNG",
+    "image": "/portfolio.png",
     "skills": ["Next.js", "Tailwind CSS", "Framer Motion"]
   }
 ]

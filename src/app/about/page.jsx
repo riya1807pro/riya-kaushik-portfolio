@@ -5,12 +5,12 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 
 const aboutPoints = [
-  "💻 Passionate Frontend Developer specialized in React, Next.js & TailwindCSS",
-  "📚 Strong Computer Engineering background from GBN Govt. Polytechnic, Nilokheri",
-  "⚡ Built 20+ projects showcasing UI/UX and full-stack skills",
-  "🔥 Solved 70+ DSA problems on LeetCode & growing daily",
-  "🌐 Hands-on experience with TRPC, Redux Toolkit, and modern web tools",
-  "🚀 Always exploring new technologies & sharpening problem-solving skills",
+  "💻 Frontend Developer skilled in building responsive and interactive web apps using React, Next.js & TailwindCSS",
+  "📚 Strong foundation in Computer Engineering from GBN Govt. Polytechnic, Nilokheri",
+  "⚡ Developed 20+ projects demonstrating expertise in UI/UX and full-stack development",
+  "🔥 Solved 70+ Data Structures & Algorithms problems on LeetCode and continuously improving problem-solving skills",
+  "🌐 Practical experience with TRPC, Redux Toolkit, and modern web development tools",
+  "🚀 Passionate about learning new technologies, optimizing performance, and delivering user-focused solutions",
 ];
 
 export default function About() {
@@ -34,7 +34,8 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
-          A motivated developer who loves crafting modern, user-friendly, and high-performing web applications.
+          A motivated frontend developer who enjoys crafting modern, scalable,
+          and user-friendly applications with a focus on clean design and performance.
         </motion.p>
 
         {/* Bullet Points with Animation */}
