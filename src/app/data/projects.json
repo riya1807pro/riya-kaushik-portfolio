@@ -20,7 +20,7 @@
     "description": "Personal portfolio website built with Next.js, Tailwind CSS, and Framer Motion. Highlights skills, projects, and interactive UI with smooth animations.",
     "live": "https://cryptotracke.vercel.app/",
     "github": "https://github.com/riya1807pro/riya-kaushik-portfolio",
-    "image": "/portfolio.png",
+    "image": "/profile.png",
     "skills": ["Next.js", "Tailwind CSS", "Framer Motion"]
   }
 ]
