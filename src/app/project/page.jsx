@@ -32,15 +32,6 @@ const projects = [
     skills: ["React", "Redux Toolkit", "Tailwind CSS", "Vite"],
   },
   {
-    title: "Next.js Auth System",
-    description:
-      "Production-ready Next.js auth system with MongoDB, JWT, email verification, role-based access.",
-    live: "https://nextjs-auth-taupe.vercel.app/",
-    github: "https://github.com/riya1807pro/nextjs_auth",
-    image: "/next_auth.PNG",
-    skills: ["Next.js", "TypeScript", "MongoDB", "JWT", "Tailwind CSS"],
-  },
-  {
     title: "My Developer Portfolio",
     description:
       "My personal portfolio website built with Next.js, Tailwind CSS, Framer Motion.",
