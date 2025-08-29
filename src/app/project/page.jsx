@@ -37,7 +37,7 @@ const projects = [
       "My personal portfolio website built with Next.js, Tailwind CSS, Framer Motion.",
     live: "https://cryptotracke.vercel.app/",
     github: "https://github.com/riya1807pro/riya-kaushik-portfolio",
-    image: "/portfolio.PNG",
+    image: "/profile.png",
     skills: ["Next.js", "Tailwind CSS", "Framer Motion"],
   },
 ];
